@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 const { endpoint } = require('../config');
 const { poolPromise } = require('../database');
+const customerRoute = require('../src/routes/customer.route')
 
 module.exports = () => {
   poolPromise;
@@ -17,5 +18,6 @@ module.exports = () => {
     next();
   });
 
+  app.use(endpoint,customerRoute)
   return app;
 }
